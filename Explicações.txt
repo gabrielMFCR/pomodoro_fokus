@@ -1,0 +1,295 @@
+
+O querySelector(): É um método que permite selecionar um elemento HTML
+utilizando um seletor CSS. Ele retorna o primeiro elemento que corresponde 
+ao seletor especificado. Por exemplo, document.querySelector('button') retorna 
+o primeiro botão encontrado no documento.
+
+querySelectorAll(): É um método semelhante ao querySelector(), 
+mas retorna todos os elementos que correspondem ao seletor especificado 
+em uma NodeList, que é uma coleção de nós. Por exemplo, document.querySelectorAll('button') 
+retorna todos os botões encontrados no documento.
+
+getElementsByClassName(): É um método que retorna uma coleção de elementos 
+que possuem a classe especificada. Por exemplo, document.getElementsByClassName('app__card-button--curto') 
+retorna todos os elementos que possuem a classe "app__card-button--curto".
+
+getElementById(): É um método que retorna o elemento que possui o ID especificado. 
+Como o ID deve ser único no documento, esse método retorna apenas um elemento. 
+Por exemplo, document.getElementById('start-pause') retorna o elemento com o ID "start-pause".
+
+Esses métodos são úteis para capturar elementos no DOM e manipulá-los utilizando JavaScript. 
+Eles permitem interagir com os elementos da página de forma dinâmica e realizar diversas ações, 
+como alterar estilos, adicionar ou remover classes, modificar conteúdo, entre outros.
+
+Atributos de dados (data attributes): São atributos personalizados que podem ser adicionados a elementos
+HTML para armazenar informações adicionais. No caso dessa aula, o atributo data-contexto é utilizado para definir o 
+contexto da página, como "foco", "descanso-curto" ou "descanso-longo". Esses atributos são modificados 
+através do JavaScript para alterar o comportamento da página.
+
+Alteração de cor de fundo: Através da manipulação dos atributos de dados, 
+é possível modificar a cor de fundo da página. No exemplo dado na aula, 
+são utilizados diferentes gradientes de cores para cada contexto. Ao alterar 
+o valor do atributo data-contexto, a cor de fundo da página é atualizada de acordo com o contexto selecionado.
+
+Eventos de clique: São eventos que são acionados quando um elemento HTML é clicado. 
+Nesse caso, é utilizado o evento de clique para detectar quando um botão específico é clicado. 
+Isso permite que o usuário interaja com a página e acione a mudança de contexto.
+O método addEventListener() é utilizado no JavaScript para adicionar um ouvinte de eventos
+a um elemento HTML específico. Ele permite que você especifique qual evento deseja ouvir e 
+qual função será executada quando esse evento ocorrer.
+
+A sintaxe básica do addEventListener() é a seguinte:
+
+elemento.addEventListener(evento, função);
+
+elemento: É o elemento HTML ao qual você deseja adicionar o ouvinte de eventos.
+evento: É uma string que representa o tipo de evento que você deseja ouvir, 
+como "click", "mouseover", "keydown", entre outros.
+função: É a função que será executada quando o evento ocorrer. 
+Essa função pode ser uma função anônima ou uma função nomeada.
+Por exemplo, na aula, é utilizado o addEventListener() para adicionar
+um ouvinte de eventos ao botão de foco (focoBt). Quando esse botão é clicado, 
+a função passada como argumento é executada. Nesse caso, a função altera o valor 
+do atributo data-contexto do elemento HTML selecionado, definindo-o como "foco".
+
+O addEventListener() é uma forma poderosa de adicionar interatividade às páginas HTML, permitindo que você responda a eventos do usuário, como cliques, movimentos do mouse, pressionamento de teclas, entre outros. Ele é amplamente utilizado para criar funcionalidades dinâmicas e responsivas em aplicações web.
+
+Espero que isso tenha esclarecido como o addEventListener() é utilizado na aula!
+
+Método setAttribute(): É um método do objeto Element do JavaScript que permite alterar o valor 
+de um atributo de um elemento HTML. Nesse caso, o método setAttribute() é utilizado para alterar 
+o valor do atributo data-contexto do elemento HTML selecionado, de acordo com o contexto desejado.
+
+Atributo defer: É um atributo que pode ser adicionado à tag <script> no HTML.
+Quando esse atributo é utilizado, o script é carregado de forma assíncrona, 
+ou seja, ele não bloqueia o carregamento do restante da página. Isso é importante 
+para garantir um carregamento mais rápido e eficiente da página.
+
+Para entendermos bem sobre este assunto, primeiro precisamos esclarecer uma coisa: O que é DOM? DOM é a sigla para Document Object Model (Modelo de Objeto de Documento) e é uma forma padronizada de representar e interagir com objetos em documentos HTML e XML. O DOM representa a estrutura de um documento através de uma árvore de objetos, onde cada objeto representa uma parte do documento.
+
+Entender essa definição ajuda a compreender a importância dos eventos e de como eles funcionam no DOM (Document Object Model), sendo essencial para avançar seus estudos em JavaScript.
+
+O que é um Evento no DOM?
+
+Pense nisso como sinais que o navegador envia quando algo acontece - como um usuário que clica em um botão em sua página web, por exemplo. Quando um evento ocorre, você tem a capacidade de reagir a ele e executar algumas ações, como exibir uma mensagem para o usuário, alterar ou adicionar algum elemento na página.
+
+O Método addEventListener
+Antes de mergulharmos nos diferentes tipos de eventos, vamos entender rapidamente como o método addEventListener funciona. Ele é um método disponível para todos os elementos HTML e permite que registremos funções (callbacks) que serão chamadas quando um evento específico ocorrer.
+
+A sintaxe básica é a seguinte:
+
+elemento.addEventListener(evento, callback);
+
+Onde:
+
+elemento: É o elemento HTML ao qual queremos associar o evento.
+evento: É uma string que representa o tipo de evento que desejamos capturar.
+callback: É a função que será chamada quando o evento ocorrer.
+Tipos de Eventos
+Eventos de clique (click)
+Os eventos de clique são alguns dos mais utilizados em desenvolvimento web. Eles ocorrem quando o usuário clica em um elemento específico da página, como um botão, um link ou até mesmo em uma imagem. Podemos usar o evento click para executar ações quando o usuário interage com esses elementos.
+
+Exemplo:
+
+// HTML <button id="meuBotao">Clique aqui</button>
+
+const meuBotao = document.getElementById("meuBotao");
+meuBotao.addEventListener("click", function() {
+  alert("O botão foi clicado!");
+});
+COPIAR CÓDIGO
+Quando o usuário clicar no botão com o texto "Clique aqui", um alerta será exibido com a mensagem "O botão foi clicado!".
+
+Eventos de submissão de formulário (submit)
+Quando temos um formulário em nossa página, podemos usar o evento submit para capturar a submissão do formulário pelo usuário. Isso nos permite executar ações como validar os dados inseridos antes de enviá-los para o servidor.
+
+Exemplo:
+
+//HTML <form id="meuFormulario">
+//HTML     <input type="text" name="nome" />
+//HTML     <input type="submit" value="Enviar" />
+//HTML  </form>
+
+const meuFormulario = document.getElementById("meuFormulario");
+meuFormulario.addEventListener("submit", function(event) {
+  event.preventDefault(); // Impede o envio padrão do formulário
+  const nome = event.target.elements.nome.value;
+  alert(`O formulário foi enviado com o nome: ${nome}`);
+});
+
+Quando o usuário preencher o campo de texto do formulário e clicar no botão "Enviar", um alerta será exibido com a mensagem "O formulário foi enviado com o nome: [nome inserido no campo]".
+
+Eventos de teclado (keydown, keyup, keypress)
+Os eventos de teclado permitem que respondamos às ações do usuário no teclado, como pressionar ou soltar uma tecla específica. Existem três principais tipos de eventos de teclado:
+
+keydown: Ocorre quando uma tecla é pressionada. keyup: Ocorre quando uma tecla é solta. keypress: Ocorre quando uma tecla é pressionada e ainda não foi solta.
+
+Exemplo:
+
+//HTML<input type="text" id="meuInput" />
+
+const meuInput = document.getElementById("meuInput");
+meuInput.addEventListener("keydown", function(event) {
+  console.log(`Tecla pressionada: ${event.key}`);
+});
+COPIAR CÓDIGO
+Quando o usuário pressiona uma tecla enquanto o cursor está no campo de texto, o evento keydown será acionado e o código imprimirá no console a mensagem "Tecla pressionada: [tecla pressionada]".
+
+Eventos de foco (focus, blur)
+Os eventos de foco são usados quando queremos capturar quando um elemento recebe ou perde o foco. O evento focus ocorre quando o elemento ganha o foco (por exemplo, quando clicamos em um campo de formulário), enquanto o evento blur ocorre quando o elemento perde o foco.
+
+Exemplo:
+
+//HTML <input type="text" id="meuCampo" />
+
+const meuCampo = document.getElementById("meuCampo");
+meuCampo.addEventListener("focus", function() {
+  console.log("Campo ganhou o foco.");
+});
+
+meuCampo.addEventListener("blur", function() {
+  console.log("Campo perdeu o foco.");
+});
+
+Quando o usuário clicar no campo de texto, o evento focus será acionado e o código imprimirá no console a mensagem "Campo ganhou o foco.". Quando o usuário clicar fora do campo, fazendo-o perder o foco, o evento blur será acionado e o código imprimirá no console a mensagem "Campo perdeu o foco.".
+
+O método addEventListener em JavaScript é uma poderosa ferramenta para lidar com eventos em elementos HTML. Através dos diferentes tipos de eventos disponíveis, podemos criar páginas web mais interativas e responsivas, melhorando a experiência do usuário.
+
+Abordamos os eventos mais comuns, e também existem muitos outros que podem ser explorados para atender às necessidades específicas de cada projeto. Portanto, o conhecimento sobre eventos e a habilidade de utilizá-los adequadamente são fundamentais para se tornar uma pessoa desenvolvedora web mais eficiente e versátil.
+
+ Existem várias formas de manipular esses elementos, mas vamos nos concentrar em quatro métodos muito úteis e comuns: getAttribute, setAttribute, hasAttribute e removeAttribute.
+
+getAttribute:
+O método getAttribute é usado para obter o valor de um atributo específico de um elemento HTML. Ele recebe um argumento, que é o nome do atributo que desejamos recuperar o valor. Por exemplo:
+
+// HTML: <div id="meuElemento" data-info="Exemplo de atributo">
+
+const elemento = document.getElementById('meuElemento');
+const valorDoAtributo = elemento.getAttribute('data-info');
+console.log(valorDoAtributo); // Saída: "Exemplo de atributo"
+COPIAR CÓDIGO
+Neste exemplo, o método getAttribute foi usado para obter o valor do atributo data-info do elemento com o ID "meuElemento".
+
+setAttribute:
+O método setAttribute é usado para definir ou modificar o valor de um atributo em um elemento HTML. Ele aceita dois argumentos: o primeiro é o nome do atributo que queremos definir ou modificar, e o segundo é o valor que queremos atribuir a esse atributo. Se o atributo já existir, o método setAttribute irá sobrescrevê-lo; caso contrário, ele criará um novo atributo. Por exemplo:
+
+// HTML: <p id="meuParagrafo">Texto inicial</p>
+
+
+const paragrafo = document.getElementById('meuParagrafo');
+paragrafo.setAttribute('id', 'paragrafoModificado');
+paragrafo.setAttribute('data-novo-atributo', 'Novo valor');
+COPIAR CÓDIGO
+Após a execução deste código, o parágrafo terá seu ID alterado para "paragrafoModificado" e será adicionado um novo atributo data-novo-atributo com o valor "Novo valor".
+
+hasAttribute:
+O método hasAttribute é usado para verificar se um elemento possui um atributo específico. Ele recebe um argumento, que é o nome do atributo que queremos verificar. O método retornará true se o atributo existir e false se o atributo não estiver presente. Vejamos um exemplo:
+
+// HTML: <a href="https://www.exemplo.com" id="meuLink">Link de exemplo</a>
+
+
+const link = document.getElementById('meuLink');
+const temHref = link.hasAttribute('href');
+console.log(temHref); // Saída: true
+const temTarget = link.hasAttribute('target');
+console.log(temTarget); // Saída: false
+COPIAR CÓDIGO
+Neste exemplo, o método hasAttribute foi usado para verificar se o elemento com o ID "meuLink" possui o atributo "href" (que é verdadeiro) e se possui o atributo "target" (que é falso).
+
+removeAttribute:
+O método removeAttribute é usado para remover um atributo específico de um elemento HTML. Ele recebe um argumento, que é o nome do atributo que desejamos remover. Por exemplo:
+
+// HTML: <img src="imagem.jpg" alt="Imagem de exemplo" id="minhaImagem">
+
+
+const imagem = document.getElementById('minhaImagem');
+imagem.removeAttribute('alt');
+COPIAR CÓDIGO
+Após a execução desse código, o atributo alt da imagem será removido, tornando-a menos acessível para pessoas com deficiência visual e fazendo com que o navegador não exiba um texto alternativo quando a imagem não puder ser carregada.
+
+Em resumo, os métodos getAttribute, setAttribute, hasAttribute e removeAttribute são ferramentas poderosas no JavaScript para interagir com atributos de elementos HTML. Eles permitem que os desenvolvedores obtenham, definam, verifiquem e removam atributos conforme necessário, tornando a manipulação do DOM mais eficiente e flexível. Ao utilizar esses métodos de forma adequada, é possível criar experiências web mais dinâmicas e interativas para os usuários.
+
+O JavaScript é uma linguagem de programação amplamente utilizada para adicionar interatividade e dinamismo às páginas da web. Uma das tarefas comuns na manipulação da interface do usuário é a alteração de classes CSS de elementos HTML. Anteriormente, a forma tradicional de fazer isso era manipular a propriedade className, que envolvia trabalhar com strings e pode ser propenso a erros. No entanto, com a introdução do método classList, a partir do ECMAScript 5, essa tarefa se tornou mais fácil e segura.
+
+O classList é uma propriedade do JavaScript que representa uma lista de classes CSS. Ele fornece métodos que facilitam a adição, remoção e verificação de classes, tornando a manipulação de classes CSS mais eficiente e menos suscetível a erros de programação.
+
+Além do que apresentei para você em vídeo, vamos conhecer mais formas de usar o classList?
+
+Adicionando uma classe
+
+Para adicionar uma classe a um elemento HTML, podemos usar o método add() do classList. Este método aceita o nome da classe como argumento e adiciona a classe ao elemento, se ela ainda não estiver presente. Conforme exemplo a seguir:
+
+const element = document.getElementById('meuElemento');
+element.classList.add('minhaClasse');
+COPIAR CÓDIGO
+Removendo uma classe
+
+Para remover uma classe de um elemento HTML, podemos utilizar o método remove() do classList. Este método aceita o nome da classe como argumento e remove a classe do elemento, se ela estiver presente. Veja o exemplo abaixo:
+
+const element = document.getElementById('meuElemento');
+element.classList.remove('minhaClasse');
+COPIAR CÓDIGO
+Alternando uma classe
+
+O método toggle() do classList permite alternar uma classe em um elemento. Se a classe já estiver presente no elemento, o método a remove; caso contrário, ele a adiciona, conforme exemplo a seguir:
+
+const element = document.getElementById('meuElemento');
+element.classList.toggle('minhaClasse');
+COPIAR CÓDIGO
+Verificando se uma classe está presente
+
+Para verificar se uma classe específica está associada a um elemento, podemos usar o método contains() do classList, como no exemplo:
+
+const element = document.getElementById('meuElemento');
+if (element.classList.contains('minhaClasse')) {
+  // A classe 'minhaClasse' está presente no elemento
+  // Faça algo aqui...
+}
+COPIAR CÓDIGO
+Substituindo classes
+
+Como feito em aula, podemos substituir uma classe por outra usando os métodos add() e remove() em sequência.
+
+const element = document.getElementById('meuElemento');
+element.classList.remove('classeAntiga');
+element.classList.add('classeNova');
+COPIAR CÓDIGO
+Manipulando várias classes simultaneamente
+
+É possível adicionar ou remover várias classes de uma vez usando o método add() ou remove() passando vários argumentos separados por vírgula. Veja o exemplo:
+
+const element = document.getElementById('meuElemento');
+element.classList.add('classe1', 'classe2', 'classe3');
+element.classList.remove('classe2', 'classe3');
+COPIAR CÓDIGO
+O classList em JavaScript é uma ferramenta poderosa e eficiente para manipular classes CSS em elementos HTML. Com os métodos add(), remove(), toggle(), contains() e outras funcionalidades, podemos realizar tarefas de manipulação de classes de forma mais segura e simplificada, tornando nossas aplicações web mais interativas e dinâmicas.
+
+Nota: Certifique-se de que o JavaScript seja carregado após a renderização do DOM, para que os elementos estejam acessíveis antes de tentar manipular suas classes.
+
+O JavaScript é uma linguagem de programação amplamente utilizada para criar interatividade em páginas da web. Uma das funcionalidades mais interessantes que ele oferece é a capacidade de manipular áudio, permitindo que os desenvolvedores adicionem e controlem elementos de áudio em seus sites de forma dinâmica. Uma das formas mais comuns de fazer isso é usando o objeto ‘Audio’.
+
+O objeto ‘Audio’ é uma parte do HTML5 e fornece uma interface fácil e poderosa para reproduzir e controlar arquivos de áudio em tempo real. Que tal explorar o uso, entendendo como criar, controlar, reproduzir e estilizar áudio em uma página da web?
+
+Criando um Objeto ‘Audio’
+Para criar um novo objeto ‘Audio’, podemos simplesmente usar a seguinte sintaxe:
+
+const audioElement = new Audio('caminho/do/arquivo-de-audio.mp3');
+COPIAR CÓDIGO
+Substitua 'caminho/do/arquivo-de-audio.mp3' pelo caminho real do arquivo de áudio que você deseja reproduzir.
+
+Controles básicos de áudio
+Após criar um objeto ‘Audio’, podemos controlar sua reprodução e outras propriedades usando métodos e propriedades disponíveis.
+
+play(): inicia a reprodução do áudio;
+pause(): pausa a reprodução do áudio;
+currentTime: propriedade que retorna ou define a posição atual de reprodução do áudio, em segundos;
+volume: propriedade que retorna ou define o nível de volume do áudio, variando de 0 a 1.
+Exemplo de utilização dos métodos do objeto Audio:
+const audioElement = new Audio('caminho/do/arquivo-de-audio.mp3');
+
+audioElement.play(); // Inicia a reprodução
+audioElement.pause(); // Pausa a reprodução
+audioElement.currentTime = 10; // Move para 10 segundos no áudio
+audioElement.volume = 0.5; // Define o volume para metade (50%)
+COPIAR CÓDIGO
+Lembre-se de que a reprodução de áudio em páginas da web pode ser intrusiva para alguns usuários, portanto, use-o com moderação e sempre forneça controles de volume e opções de pausa aos visitantes do seu site.
